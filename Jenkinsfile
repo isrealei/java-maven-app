@@ -35,7 +35,7 @@ pipeline {
         stage("deploy") {
             steps {
                 script {
-                    echo "deploying artifacts"
+                    echo "deploying artifact"
                     //gv.deployApp()
                 }
             }
