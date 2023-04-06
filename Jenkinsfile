@@ -7,6 +7,7 @@ pipeline {
     }
     stages {
         stage("init") {
+          
             steps {
                 script {
                     gv = load "script.groovy"
@@ -14,6 +15,11 @@ pipeline {
             }
         }
         stage("build jar") {
+            When {
+                expression {
+                    BRANCH_NAME == 'master'
+                }
+            }
             steps {
                 script {
                    gv.buildJar()
@@ -23,6 +29,11 @@ pipeline {
         }
 
         stage("build image") {
+            When {
+                expression {
+                    BRANCH_NAME == 'master'
+                }
+            }
             steps {
                 script {
                     gv.buildImage()
@@ -33,6 +44,11 @@ pipeline {
             }
 
         stage("deploy") {
+            When {
+                expression {
+                    BRANCH_NAME == 'master'
+                }
+            }
             steps {
                 script {
                     echo "deploying artifact"
