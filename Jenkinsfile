@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage("build jar") {
-            When {
+            when {
                 expression {
                     BRANCH_NAME == 'master'
                 }
@@ -29,7 +29,7 @@ pipeline {
         }
 
         stage("build image") {
-            When {
+            when {
                 expression {
                     BRANCH_NAME == 'master'
                 }
@@ -44,7 +44,7 @@ pipeline {
             }
 
         stage("deploy") {
-            When {
+            when {
                 expression {
                     BRANCH_NAME == 'master'
                 }
