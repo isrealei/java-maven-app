@@ -7,11 +7,7 @@ pipeline {
     }
     stages {
         stage("init") {
-            When {
-                expression {
-                    BRANCH_NAME == 'master'
-                }
-            }
+          
             steps {
                 script {
                     gv = load "script.groovy"
