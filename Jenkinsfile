@@ -7,6 +7,11 @@ pipeline {
     }
     stages {
         stage("init") {
+            When {
+                expression {
+                    BRANCH_NAME == 'master'
+                }
+            }
             steps {
                 script {
                     gv = load "script.groovy"
@@ -18,6 +23,7 @@ pipeline {
                 expression {
                     BRANCH_NAME == 'master'
                 }
+            }
             steps {
                 script {
                    gv.buildJar()
@@ -31,6 +37,7 @@ pipeline {
                 expression {
                     BRANCH_NAME == 'master'
                 }
+            }
             steps {
                 script {
                     gv.buildImage()
@@ -45,9 +52,10 @@ pipeline {
                 expression {
                     BRANCH_NAME == 'master'
                 }
+            }
             steps {
                 script {
-                    echo "deploying artifacts"
+                    echo "deploying artifact"
                     //gv.deployApp()
                 }
             }
