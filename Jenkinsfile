@@ -39,10 +39,11 @@ pipeline {
             
             steps {
                 script {
-                    def dockerCmd =  'docker-compose -f docker-compose.yaml up -d'
+                    def shellCmd =  'bash ./server-commands.sh'
                     sshagent(['applogin']) {
+                     sh "scp -o StrictHostKeyChecking=no server-commands.sh  ubuntu@54.234.55.26:/home/ubuntu"
                      sh "scp -o StrictHostKeyChecking=no docker-compose/docker-compose.yaml ubuntu@54.234.55.26:/home/ubuntu"
-                     sh "ssh -o StrictHostKeyChecking=no ubuntu@54.234.55.26 ${dockerCmd}"  
+                     sh "ssh -o StrictHostKeyChecking=no ubuntu@54.234.55.26 ${shellCmd}"  
 
                   }
                 }
