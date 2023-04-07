@@ -1,0 +1,18 @@
+version: "3.8"
+services: 
+   delight-app: 
+     image: isrealurephu/lifedelight-app:V18
+     ports:
+     - 5080:8090
+
+   java-maven-app:
+      image: isrealurephu/demo-app:V1
+      ports: 
+      - 5001:8080
+
+   postgres:
+     image: postgres
+     ports: 
+     - 5432:5432
+     environment:
+       POSTGRES_PASSWORD: 76932072

@@ -39,9 +39,10 @@ pipeline {
             
             steps {
                 script {
-                    def dockerCmd =  'docker run -d -p 8095:8090 isrealurephu/lifedelight-app:V18'
+                    def dockerCmd =  'docker-compose -f docker-compose.yaml up -d'
                     sshagent(['applogin']) {
-                     sh "ssh -o StrictHostKeyChecking=no ubuntu@3.95.164.52 ${dockerCmd}"  
+                     sh "scp docker-compose.yaml ubuntu@54.146.216.116:/home/ubuntu"
+                     sh "ssh -o StrictHostKeyChecking=no ubuntu@54.146.216.116 ${dockerCmd}"  
 
                   }
                 }
