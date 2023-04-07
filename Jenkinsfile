@@ -39,7 +39,7 @@ pipeline {
             
             steps {
                 script {
-                    def dockerCmd =  'docker run -d -p 8090:8090 isrealurephu/lifedelight-app:V18'
+                    def dockerCmd =  'docker run -d -p 8095:8090 isrealurephu/lifedelight-app:V18'
                     sshagent(['applogin']) {
                      sh "ssh -o StrictHostKeyChecking=no ubuntu@3.95.164.52 ${dockerCmd}"  
 
