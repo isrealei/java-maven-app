@@ -35,6 +35,10 @@ pipeline {
                 }
             }
 
+            stage ("Provision server"){
+                // this stage is to provsion the servers using terraform
+            }
+
         stage("deploy") {
             
             steps {
