@@ -114,11 +114,6 @@ data "aws_ami" "latest-amazon-linux-image" {
 
 }
 
-output "aws_ami_id" {
-  value = data.aws_ami.latest-amazon-linux-image.id
-
-}
-
 resource "aws_instance" "my-app-webserver" {
   ami           = data.aws_ami.latest-amazon-linux-image.id
   instance_type = var.instance_type
