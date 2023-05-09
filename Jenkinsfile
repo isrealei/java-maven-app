@@ -55,7 +55,7 @@ pipeline {
             
             steps {
                 script {
-                    ehco "waiting for EC2 server to initialize"
+                    echo "waiting for EC2 server to initialize"
                     sleep(time:90, unit: "SECONDS")
                     def shellCmd =  'bash ./server-commands.sh'
                     sshagent(['applogin']) {
