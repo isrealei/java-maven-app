@@ -70,7 +70,7 @@ resource "aws_security_group" "my-app-sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.my_IP]
+    cidr_blocks = [var.my_IP, var.jenkinsIP]
 
   }
 

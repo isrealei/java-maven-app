@@ -24,3 +24,7 @@ variable "instance_type" {
 variable "region" {
   default = "us-east-1"
 }
+
+variable "jenkinsIP" {
+  default = "18.207.233.53/32"
+}
